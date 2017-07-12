@@ -21,12 +21,14 @@ func Test_Wrap(t *testing.T) {
 		{"hello-world", 3, "hello-|world"},
 		{"choose a Gerrymander from the pile and Gerrymander a Hex", 20,
 			"choose a Gerrymander|from the pile and|Gerrymander a Hex"},
+		{"Choose any Gerrymander from the pile and Gerrymander a Hex", 20,
+			"Choose any|Gerrymander from the|pile and Gerrymander|a Hex"},
 	}
 	for _, v := range ts {
 		ss := Wrap(v.s1, v.bp)
 		rs := strings.Join(ss, "|")
 		if rs != v.s2 {
-			t.Logf("With :%d:%s ,\nExpected: %s\nGot: %s", v.bp, v.s1, v.s2, rs)
+			t.Logf("With :%d:%s ,\nExp: %s\nGot: %s", v.bp, v.s1, v.s2, rs)
 			t.Fail()
 		}
 	}
