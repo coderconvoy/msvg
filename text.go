@@ -23,12 +23,12 @@ func Wrap(s string, n int) []string {
 			last_ = k
 			dsh = "-"
 
-		default:
 		}
 		if gl > n && last_ > lastb {
 			res = append(res, s[lastb:last_]+dsh)
 			gl = 0
 			lastb = last_ + 1
+			dsh = ""
 			continue
 		}
 		gl++

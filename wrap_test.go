@@ -19,6 +19,8 @@ func Test_Wrap(t *testing.T) {
 		{"hello\nwor ld", 4, "hello|wor|ld"},
 		{"hello world", 0, "hello|world"},
 		{"hello-world", 3, "hello-|world"},
+		{"choose a Gerrymander from the pile and Gerrymander a Hex", 20,
+			"choose a Gerrymander|from the pile and|Gerrymander a Hex"},
 	}
 	for _, v := range ts {
 		ss := Wrap(v.s1, v.bp)
