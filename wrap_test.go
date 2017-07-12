@@ -18,6 +18,7 @@ func Test_Wrap(t *testing.T) {
 		{"hello world", 4, "hello|world"},
 		{"hello\nwor ld", 4, "hello|wor|ld"},
 		{"hello world", 0, "hello|world"},
+		{"hello-world", 3, "hello-|world"},
 	}
 	for _, v := range ts {
 		ss := Wrap(v.s1, v.bp)
