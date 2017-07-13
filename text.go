@@ -1,7 +1,6 @@
 package msvg
 
 import (
-	"fmt"
 	"unicode/utf8"
 )
 
@@ -32,7 +31,6 @@ func Wrap(s string, n int) []string {
 		if gl > n && last_ > lastb {
 			res = append(res, s[lastb:last_]+dsh)
 			lastb = last_ + 1
-			fmt.Println("last_,k", lastb, k)
 			scut := s[last_:k]
 			gl = utf8.RuneCountInString(scut)
 			dsh = ""
