@@ -39,3 +39,9 @@ func Page(n, nw, pw, ph int, cf CardFunc) *bytes.Buffer {
 
 	return res
 }
+
+func ImageHolder(path string, margin int) CardFunc {
+	return func(n, cw, ch int, g *svg.SVG) {
+		g.Image(margin, margin, cw-margin*2, ch-margin*2, path)
+	}
+}
