@@ -40,8 +40,8 @@ func Page(n, nw, pw, ph int, cf CardFunc) *bytes.Buffer {
 	return res
 }
 
-func ImageHolder(path string, margin int) CardFunc {
+func ImageHolder(path string, marginX, marginY int) CardFunc {
 	return func(n, cw, ch int, g *svg.SVG) {
-		g.Image(margin, margin, cw-margin*2, ch-margin*2, path)
+		g.Image(marginX, marginY, cw-marginX*2, ch-marginY*2, path)
 	}
 }
