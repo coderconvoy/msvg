@@ -45,3 +45,29 @@ func ImageHolder(path string, marginX, marginY int) CardFunc {
 		g.Image(marginX, marginY, cw-marginX*2, ch-marginY*2, path)
 	}
 }
+
+type Card interface {
+	Svg(int, int, *svg.SVG) //w,h
+	Count() int
+}
+
+func Total(cards []Card) int {
+	res := 0
+	for _, v := range cards {
+		res += v.Count()
+	}
+	return res
+}
+
+func CardList(cards []Card, offset int) CardFunc {
+	return func(n, cw, ch int, g *svg.SVG) {
+		pos := -offset
+		for _, v := range cards {
+			pos += v.Count()
+			if pos > n {
+				v.Svg(cw, ch, g)
+				return
+			}
+		}
+	}
+}
